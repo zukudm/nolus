@@ -1,5 +1,7 @@
 ---
 host: localhost
+network: testnet/nolus-rila"
+
 volume_name: nolus_volume
 network_name: nolus_net
 working_user: ansible
@@ -12,10 +14,12 @@ checkout_version: latest
 
 
 nolus_git_link: https://github.com/Nolus-Protocol/nolus-networks.git
+nolus_git_name: nolus-networks
+
 
 pathfinder_githubapi_url: https://api.github.com/repos/eqlabs/pathfinder/releases/latest
 
-nolus_git_name: nolus-networks
+
 
 
 label_name: org.opencontainers.image.title

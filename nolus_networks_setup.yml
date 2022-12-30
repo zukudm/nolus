@@ -15,7 +15,7 @@
         dest: "{{ nolus_git_name }}/"
     
     - name: Get version
-      set_fact: version="{{ lookup('file', nolus_git_name+'/version.md') }}"
+      set_fact: version="{{ lookup('file', nolus_git_name+network+'/version.md') }}"
 
     - ansible.builtin.debug:
          var: version
