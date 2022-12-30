@@ -1,6 +1,6 @@
 ---
 host: localhost
-network: testnet/nolus-rila"
+network: testnet/nolus-rila
 
 volume_name: nolus_volume
 network_name: nolus_net
