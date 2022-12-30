@@ -13,5 +13,5 @@
       ansible.builtin.git:
         repo: '{{ nolus_git_link }}'
         dest: "{{ nolus_git_name }}/"
-        version: "{{ checkout_version }}"
+        # version: "{{ checkout_version }}"
       
