@@ -1,0 +1,17 @@
+- name: Run nolus-networks setup
+  vars_files: 
+    - vars/vars.yml
+    
+  hosts: localhost
+  gather_facts: no
+  become: yes
+
+  
+  tasks:
+
+    - name: Git checkout
+      ansible.builtin.git:
+        repo: '{{ nolus_git_link }}'
+        dest: "{{ nolus_git_name }}/"
+        version: "{{ checkout_version }}"
+      

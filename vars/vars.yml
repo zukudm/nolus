@@ -1,0 +1,36 @@
+---
+host: localhost
+volume_name: nolus_volume
+network_name: nolus_net
+working_user: ansible
+
+
+container_mount_point: /usr/share/pathfinder/data
+checkout_version: latest
+
+
+
+
+nolus_git_link: https://github.com/Nolus-Protocol/nolus-networks.git
+
+pathfinder_githubapi_url: https://api.github.com/repos/eqlabs/pathfinder/releases/latest
+
+nolus_git_name: nolus-networks
+
+
+label_name: org.opencontainers.image.title
+label_value: pathfinder
+
+cpus: 1
+cpu_shares: 1024
+
+
+
+
+
+
+
+
+
+
+
