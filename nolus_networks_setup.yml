@@ -13,5 +13,10 @@
       ansible.builtin.git:
         repo: '{{ nolus_git_link }}'
         dest: "{{ nolus_git_name }}/"
-        # version: "{{ checkout_version }}"
+    
+    - name: Get version
+      set_fact: version="{{ lookup('file', nolus_git_name+'/version.md') }}"
+
+    - ansible.builtin.debug:
+         var: version
       
