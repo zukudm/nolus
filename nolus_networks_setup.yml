@@ -20,6 +20,19 @@
     - name: Set image name
       set_fact: image_name="nolus-image-{{version}}"
 
+    - name: Build image and with build args
+      community.docker.docker_image:
+        name: "{{ image_name }}"
+        tag: "{{ network }}"
+        state: present
+        build:
+          path: "{{ nolus_git_name }}/"
+          dockerfile: "{{ dockerfile }}"
+          args:
+            NETWORK: "{{ network }}"
+            VERSION: "{{ version }}"
+        source: build
+
 
 
     - ansible.builtin.debug:
