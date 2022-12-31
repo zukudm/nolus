@@ -3,29 +3,20 @@ host: localhost
 network: testnet/nolus-rila
 
 volume_name: nolus_volume
+container_name: nolus-node
+
 network_name: nolus_net
+
 dockerfile: nolus_node.Dockerfile
 dockertag: testnet-nolus-rila
 working_user: ansible
 
 
-container_mount_point: /usr/share/pathfinder/data
-checkout_version: latest
-
-
+container_mount_point: /.nolus/data
 
 
 nolus_git_link: https://github.com/Nolus-Protocol/nolus-networks.git
 nolus_git_name: nolus-networks
-
-
-pathfinder_githubapi_url: https://api.github.com/repos/eqlabs/pathfinder/releases/latest
-
-
-
-
-label_name: org.opencontainers.image.title
-label_value: pathfinder
 
 cpus: 1
 cpu_shares: 1024

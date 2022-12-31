@@ -33,6 +33,20 @@
             VERSION: "{{ version }}"
         source: build
 
+    - name: Start the container 
+      community.docker.docker_container:
+        name: "{{ container_name }}-{{ version }}"
+        image: "{{ image_name }}"
+        detach: yes
+        restart_policy: unless-stopped
+        networks: 
+          - name: "{{ network_name }}"
+        volumes: 
+          - "{{ volume_name }}:{{ container_mount_point }}"
+        cpus: "{{ cpus }}"
+        cpu_shares: "{{ cpu_shares }}"
+
+
 
 
     - ansible.builtin.debug:
