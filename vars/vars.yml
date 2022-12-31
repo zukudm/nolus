@@ -12,7 +12,7 @@ dockertag: testnet-nolus-rila
 working_user: ansible
 
 
-container_mount_point: /.nolus/data
+container_mount_point: /root/.nolus/data
 
 
 nolus_git_link: https://github.com/Nolus-Protocol/nolus-networks.git
