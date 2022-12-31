@@ -23,7 +23,7 @@
     - name: Build image and with build args
       community.docker.docker_image:
         name: "{{ image_name }}"
-        tag: "{{ network }}"
+        tag: "{{ dockertag }}"
         state: present
         build:
           path: "{{ nolus_git_name }}/"
