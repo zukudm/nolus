@@ -33,6 +33,11 @@
             VERSION: "{{ version }}"
         source: build
 
+    - name: Create a docker network
+      docker_network:
+        name: "{{ network_name }}"
+
+
     - name: Start the container 
       community.docker.docker_container:
         name: "{{ container_name }}-{{ version }}"
