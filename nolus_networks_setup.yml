@@ -17,6 +17,11 @@
     - name: Get version
       set_fact: version="{{ lookup('file', nolus_git_name +'/'+ network +'/version.md') }}"
 
+    - name: Set image name
+      set_fact: image_name="nolus-image-{{version}}"
+
+
+
     - ansible.builtin.debug:
-         var: version
+         var: image_name
       
