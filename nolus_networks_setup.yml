@@ -25,6 +25,7 @@
         name: "{{ image_name }}"
         tag: "{{ dockertag }}"
         state: present
+        force_absent: true
         build:
           path: "{{ nolus_git_name }}/"
           dockerfile: "{{ dockerfile }}"
@@ -41,7 +42,7 @@
     - name: Start the container 
       community.docker.docker_container:
         name: "{{ container_name }}-{{ version }}"
-        image: "{{ image_name }}"
+        image: "{{ image_name }}/{{ dockertag }}"
         detach: yes
         restart_policy: unless-stopped
         networks: 
