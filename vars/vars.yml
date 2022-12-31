@@ -4,6 +4,7 @@ network: testnet/nolus-rila
 
 volume_name: nolus_volume
 network_name: nolus_net
+dockerfile: nolus_node.Dockerfile
 working_user: ansible
 
 
