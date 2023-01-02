@@ -17,15 +17,17 @@
       set_fact: image_name="nolus-image-{{version}}"
 
    
-    - name: Some initial preparation before start 2
+    - name: Run test cmd inside container
       community.docker.docker_container_exec: 
         container: "{{ container_name }}-{{ version }}"
         command: sh -c " echo mypassword | nolusd keys show nolus-key -a"
+      register: out
+
         
 
 
 
 
-    # - ansible.builtin.debug:
-    #      var: image_name
+    - ansible.builtin.debug:
+        var: out
       
