@@ -24,7 +24,11 @@
       register: out
 
         
-    - name: Print all details abot key, don't miss it!!!
+    - name: Print all details abot key
       ansible.builtin.debug:
-        var: out
+        var: out.stdout
+
+    - name: Print recovery information about key (mnemonic)
+      ansible.builtin.debug:
+        var: out.stderr_lines
       
