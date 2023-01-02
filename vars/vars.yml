@@ -7,6 +7,11 @@ container_name: nolus-node
 
 network_name: nolus_net
 
+keyname: nolus-key
+password4key: "mypassword"
+
+
+
 dockerfile: nolus_node.Dockerfile
 dockertag: testnet-nolus-rila
 working_user: ansible
