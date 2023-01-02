@@ -42,6 +42,21 @@
       ansible.builtin.debug:
         var: moniker_out.stdout 
 
+    - name: Get sync status inside container
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}-{{ version }}1"
+        command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
+      register: sync_out
+
+
+    - name: Validate if API url was defined
+      assert:
+        that: 
+          - sync_out.stdout == true
+        fail_msg: "Full node is not synced!!!! Please wait for a while"
+      
+
+
 
 
         
