@@ -1,0 +1,31 @@
+- name: Run nolus-networks validator setup
+  vars_files: 
+    - vars/vars.yml
+    
+  hosts: {{ localhost }}
+  gather_facts: no
+  become: yes
+
+  
+  tasks:
+
+    
+    - name: Get version
+      set_fact: version="{{ lookup('file', nolus_git_name +'/'+ network +'/version.md') }}"
+
+    - name: Set image name
+      set_fact: image_name="nolus-image-{{version}}"
+
+   
+    - name: Some initial preparation before start 2
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}-{{ version }}"
+        command: sh -c " echo mypassword | nolusd keys show nolus-key -a"
+        
+
+
+
+
+    # - ansible.builtin.debug:
+    #      var: image_name
+      
