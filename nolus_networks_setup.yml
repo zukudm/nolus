@@ -41,7 +41,7 @@
 
     - name: Start the container 
       community.docker.docker_container:
-        name: "{{ container_name }}-{{ version }}1"
+        name: "{{ container_name }}-{{ version }}"
         image: "{{ image_name }}:{{ dockertag }}"
         pull: false
         detach: yes

@@ -44,7 +44,7 @@
 
     - name: Add curl and jq pkg into the container
       community.docker.docker_container_exec: 
-        container: "{{ container_name }}-{{ version }}1"
+        container: "{{ container_name }}-{{ version }}"
         command: sh -c "apk add curl; apk add jq"
           
 
