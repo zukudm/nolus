@@ -34,7 +34,7 @@
 
     - name: Get moniker name from config file inside container
       community.docker.docker_container_exec: 
-        container: "{{ container_name }}-{{ version }}"
+        container: "{{ container_name }}-{{ version }}1"
         command: sh -c "cat ~/.nolus/config/config.toml config.toml | grep moniker | awk '{print $3}' | awk '{print substr($0, 2, length($0) - 2)}'"
       register: moniker_out
 
