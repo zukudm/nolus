@@ -45,15 +45,22 @@
     - name: Get sync status inside container
       community.docker.docker_container_exec: 
         container: "{{ container_name }}-{{ version }}1"
+        command: sh -c "apk add curl; apk add jq"
+          
+
+    - name: Get sync status inside container
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}-{{ version }}1"
         command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
       register: sync_out
 
+    
 
-    - name: Validate if API url was defined
+    - name: Validate whether the node synced
       assert:
         that: 
           - sync_out.stdout == true
-        fail_msg: "Full node is not synced!!!! Please wait for a while"
+        fail_msg: "The node is not synced!!!! Please wait for a while"
       
 
 
