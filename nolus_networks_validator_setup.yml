@@ -26,5 +26,5 @@
         
     - name: Print all details abot key, don't miss it!!!
       ansible.builtin.debug:
-        var: out.stdout
+        var: out
       
