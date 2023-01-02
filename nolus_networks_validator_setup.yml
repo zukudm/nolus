@@ -17,18 +17,34 @@
       set_fact: image_name="nolus-image-{{version}}"
 
    
-    - name: Run test cmd inside container
-      community.docker.docker_container_exec: 
-        container: "{{ container_name }}-{{ version }}"
-        command: sh -c " printf '%s\n%s\n' {{ password4key }} {{ password4key }} | nolusd keys add {{ keyname }}"
-      register: out
+    # - name: Run key generation inside container
+    #   community.docker.docker_container_exec: 
+    #     container: "{{ container_name }}-{{ version }}"
+    #     command: sh -c " printf '%s\n%s\n' {{ password4key }} {{ password4key }} | nolusd keys add {{ keyname }}"
+    #   register: out
 
         
-    - name: Print all details abot key
-      ansible.builtin.debug:
-        var: out.stdout
+    # - name: Print all details abot key
+    #   ansible.builtin.debug:
+    #     var: out.stdout
 
-    - name: Print recovery information about key (mnemonic)
+    # - name: Print recovery information about key (mnemonic)
+    #   ansible.builtin.debug:
+    #     var: out.stderr_lines
+
+    - name: Get moniker name from config file inside container
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}-{{ version }}"
+        command: sh -c "cat {{ container_mount_point }}/config/config.toml config.toml | grep moniker | awk '{print $3}' | awk '{print substr($0, 2, length($0) - 2)}'"
+      register: moniker_out
+
+    - name: Print moniker name
       ansible.builtin.debug:
-        var: out.stderr_lines
+        var: moniker_out.stdout 
+
+
+
+        
+
+
       
