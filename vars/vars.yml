@@ -10,6 +10,9 @@ network_name: nolus_net
 keyname: nolus-key
 password4key: "mypassword"
 
+ask_recovery: no
+
+
 
 
 dockerfile: nolus_node.Dockerfile

@@ -6,10 +6,17 @@
   gather_facts: no
   become: yes
 
+  pre_tasks:
+    - pause:
+        prompt: "Input your recovery mnemonic"
+        echo: no
+      when: ask_recovery != "no"
+      register: recovery_mnemonic
+
+
   
   tasks:
-
-    
+ 
     - name: Get version
       set_fact: version="{{ lookup('file', nolus_git_name +'/'+ network +'/version.md') }}"
 
