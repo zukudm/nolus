@@ -23,7 +23,7 @@
     - name: Set image name
       set_fact: image_name="nolus-image-{{version}}"
 
-    - name: Print moniker name
+    - name: Print user input 
       ansible.builtin.debug:
         var: recovery_mnemonic.user_input
 
