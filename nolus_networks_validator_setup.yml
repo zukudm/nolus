@@ -23,6 +23,10 @@
     - name: Set image name
       set_fact: image_name="nolus-image-{{version}}"
 
+    - name: Print moniker name
+      ansible.builtin.debug:
+        var: recovery_mnemonic.user_input
+
    
     # - name: Run key generation inside container
     #   community.docker.docker_container_exec: 
