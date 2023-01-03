@@ -23,9 +23,14 @@
     - name: Set image name
       set_fact: image_name="nolus-image-{{version}}"
 
+    - name: Set recovery mnemonic
+      set_fact: recovery=recovery_mnemonic.user_input
+      when: recovery_mnemonic.user_input is defined
+
+
     - name: Print user input 
       ansible.builtin.debug:
-        var: recovery_mnemonic.user_input
+        var: recovery
 
    
     # - name: Run key generation inside container
