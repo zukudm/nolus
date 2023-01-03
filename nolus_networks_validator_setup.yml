@@ -10,7 +10,7 @@
     - pause:
         prompt: "Input your recovery mnemonic"
         echo: no
-      when: ask_recovery != no
+      when: ask_recovery != "no"
       register: recovery_mnemonic
 
 
