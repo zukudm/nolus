@@ -11,7 +11,7 @@ keyname: nolus-key
 password4key: "mypassword"
 
 ask_recovery: "no"
-recovery: "looooooooooong string"
+#recovery: "looooooooooong string"
 
 
 

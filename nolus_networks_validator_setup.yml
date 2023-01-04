@@ -28,9 +28,9 @@
       when: recovery_mnemonic.user_input is defined
 
 
-    - name: Print user input 
-      ansible.builtin.debug:
-        var: recovery
+    # - name: Print user input 
+    #   ansible.builtin.debug:
+    #     var: recovery
 
    
     # - name: Run key generation inside container
@@ -70,15 +70,20 @@
         command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
       register: sync_out
 
-    - name: Print SYnc status
-      ansible.builtin.debug:
-        var: sync_out.stdout
 
     - name: Validate whether the node synced
       assert:
         that: 
           - sync_out.stdout == "false"
         fail_msg: "The node is not synced!!!! Please wait for a while"
+
+    - name: Print is recovery is eanbles
+      ansible.builtin.debug:
+        msg: "Do recovery"
+      when: recovery is defined
+      
+
+    
       
 
 
