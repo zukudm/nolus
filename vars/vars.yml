@@ -11,7 +11,7 @@ keyname: nolus-key
 password4key: "mypassword"
 
 ask_recovery: "yes"
-# recovery: "put recovery string here in case you want dor ecovery and uncomment this line"
+# recovery: "put recovery string here in case you want recover your key and uncomment this line"
 
 
 
