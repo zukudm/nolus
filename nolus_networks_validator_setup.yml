@@ -28,22 +28,6 @@
       when: recovery_mnemonic.user_input is defined
 
 
-   
-    # - name: Run key generation inside container
-    #   community.docker.docker_container_exec: 
-    #     container: "{{ container_name }}-{{ version }}"
-    #     command: sh -c " printf '%s\n%s\n' {{ password4key }} {{ password4key }} | nolusd keys add {{ keyname }}"
-    #   register: out
-
-        
-    # - name: Print all details abot key
-    #   ansible.builtin.debug:
-    #     var: out.stdout
-
-    # - name: Print recovery information about key (mnemonic)
-    #   ansible.builtin.debug:
-    #     var: out.stderr_lines
-
     - name: Get moniker name from config file inside container
       community.docker.docker_container_exec: 
         container: "{{ container_name }}-{{ version }}"
@@ -73,7 +57,7 @@
           - sync_out.stdout == "false"
         fail_msg: "The node is not synced!!!! Please wait for a while"
 
-    - name: Print is recovery is eanbles
+    - name: Print if recovery is eanbled
       ansible.builtin.debug:
         msg: "Do recovery"
       when: recovery is defined
