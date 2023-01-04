@@ -77,7 +77,7 @@
     - name: Validate whether the node synced
       assert:
         that: 
-          - sync_out.stdout == "true"
+          - sync_out.stdout == false
         fail_msg: "The node is not synced!!!! Please wait for a while"
       
 
