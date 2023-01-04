@@ -24,7 +24,7 @@
       set_fact: image_name="nolus-image-{{version}}"
 
     - name: Set recovery mnemonic
-      set_fact: recovery=recovery_mnemonic.user_input
+      set_fact: recovery="{{ recovery_mnemonic.user_input }}"
       when: recovery_mnemonic.user_input is defined
 
 
@@ -75,7 +75,7 @@
     - name: Validate whether the node synced
       assert:
         that: 
-          - sync_out.stdout == true
+          - sync_out.stdout == 'true'
         fail_msg: "The node is not synced!!!! Please wait for a while"
       
 
