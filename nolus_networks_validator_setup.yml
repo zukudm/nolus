@@ -70,7 +70,9 @@
         command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
       register: sync_out
 
-    
+    - name: Print SYnc status
+      ansible.builtin.debug:
+        var: sync_out.stdout
 
     - name: Validate whether the node synced
       assert:
