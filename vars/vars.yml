@@ -12,7 +12,7 @@ password4key: "mypassword"
 
 ask_recovery: "yes"
 # recovery: "put recovery string here in case you want recover your key and uncomment this line"
-yes: "Y"
+accept: "Y"
 
 
 
