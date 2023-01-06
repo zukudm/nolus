@@ -79,26 +79,26 @@
     - name: Print all information about new key
       block:
 
-      - name: Print all details about key
-        ansible.builtin.debug:
-          var: out.stdout
+        - name: Print all details about key
+          ansible.builtin.debug:
+            var: out.stdout
 
-      - name: Print recovery information about key (mnemonic)
-        ansible.builtin.debug:
-          var: out.stderr_lines
+        - name: Print recovery information about key (mnemonic)
+          ansible.builtin.debug:
+            var: out.stderr_lines
 
       when: recovery is not  defined
     
     - name: Print all information about recover key
       block:
 
-      - name: Print all details about key
-        ansible.builtin.debug:
-        var: out_recovery.stdout
+        - name: Print all details about key
+          ansible.builtin.debug:
+          var: out_recovery.stdout
 
-      - name: Print recovery information about key (mnemonic)
-        ansible.builtin.debug:
-          var: out_recovery.stderr_lines
+        - name: Print recovery information about key (mnemonic)
+          ansible.builtin.debug:
+            var: out_recovery.stderr_lines
 
       when: recovery is defined
           
