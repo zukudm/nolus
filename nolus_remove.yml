@@ -1,0 +1,44 @@
+- name: Remove node
+  vars_files: 
+    - vars/vars.yml
+  hosts: "{{ host }}"
+  gather_facts: no
+  become: yes    
+  
+  tasks:
+ 
+
+      - name: Get version
+        set_fact: version="{{ lookup('file', nolus_git_name +'/'+ network +'/version.md') }}"
+
+      - name: Set image name
+        set_fact: image_name="nolus-image-{{version}}"
+
+      - name: Remove old container if exists
+        community.docker.docker_container:
+          name: "{{ container_name }}-{{ version }}"
+          state: absent
+      
+
+
+    
+      - name: Prune everything
+        community.docker.docker_prune:
+          containers: true
+          images: true
+          images_filters:
+            dangling: false
+          networks: true
+          volumes: true
+          builder_cache: true
+
+      - name: Remove Git directory
+        ansible.builtin.file:
+          path: "nolus_git_name/"
+          state: absent
+
+      
+
+
+
+

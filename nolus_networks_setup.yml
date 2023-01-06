@@ -52,6 +52,8 @@
           - "{{ volume_name }}:{{ container_mount_point }}"
         cpus: "{{ cpus }}"
         cpu_shares: "{{ cpu_shares }}"
+        memory: "{{ memory }}"
+        memory_reservation: "{{ memory_reservation }}"
 
 
 
