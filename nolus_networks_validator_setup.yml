@@ -78,7 +78,6 @@
 
     - name: Print all information about new key
       block:
-
         - name: Print all details about key
           ansible.builtin.debug:
             var: out.stdout
@@ -91,7 +90,6 @@
     
     - name: Print all information about recover key
       block:
-
         - name: Print all details about key
           ansible.builtin.debug:
           var: out_recovery.stdout
