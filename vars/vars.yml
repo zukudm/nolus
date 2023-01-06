@@ -29,8 +29,8 @@ nolus_git_name: nolus-networks
 
 cpus: 1
 cpu_shares: 1024
-memory: 6M
-memory_reservation: 4M
+memory: 6m
+memory_reservation: 4m
 
 
 
