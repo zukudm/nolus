@@ -73,19 +73,35 @@
       community.docker.docker_container_exec: 
         container: "{{ container_name }}-{{ version }}"
         command: sh -c "printf '%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s \n%s\n' {{ recovery }} {{ password4key }} | nolusd keys add {{ keyname }} --recover"
-      register: out1
+      register: out_recovery
       when: recovery is defined
 
 
-        
-    - name: Print all details about key
-      ansible.builtin.debug:
-        var: out.stdout
+    - block:
 
-    - name: Print recovery information about key (mnemonic)
-      ansible.builtin.debug:
-        var: out.stderr_lines
-      # when: recovery is defined
+      - name: Print all details about key
+        ansible.builtin.debug:
+          var: out.stdout
+
+      - name: Print recovery information about key (mnemonic)
+        ansible.builtin.debug:
+          var: out.stderr_lines
+
+      when: recovery is not  defined
+    
+    - block: 
+
+      - name: Print all details about key
+        ansible.builtin.debug:
+        var: out_recovery.stdout
+
+      - name: Print recovery information about key (mnemonic)
+        ansible.builtin.debug:
+          var: out_recovery.stderr_lines
+
+      when: recovery is defined
+          
+    
 
 
       
