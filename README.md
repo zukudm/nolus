@@ -76,16 +76,6 @@ Wait for some time and run Validator upgrade.
 After creating a new key, its information will be shown alongside the seed phrase. Make sure to write it down, as it is the only way to restore your keys.
 
 
-# List of Ansible playbooks:
-
-nolus_networks_setup.yml - Setup Nolus-netwroks node within your Linux box. Run it from root user. 
-
-nolus_networks_validator_setup.yml - Run a Validator
-
-
-nolus_remove.yml  - Remove all nolus-netwroks data, suitable for all cases.
-
-
 # Update
 
 Not done yet :(
@@ -99,5 +89,13 @@ To remove Starnet node from the server just log in and run
  ansible-playbook nolus_remove.yml
  ```
  
- 
+ # List of Ansible playbooks:
+
+nolus_networks_setup.yml - Setup Nolus-netwroks node within your Linux box. Run it from root user. 
+
+nolus_networks_validator_setup.yml - Run a Validator
+
+nolus_remove.yml  - Remove all nolus-netwroks data, suitable for all cases.
+
+
  
