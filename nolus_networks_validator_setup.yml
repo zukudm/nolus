@@ -78,7 +78,7 @@
 
 
         
-    - name: Print all details abot key
+    - name: Print all details about key
       ansible.builtin.debug:
         var: out.stdout
 
