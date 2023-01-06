@@ -88,17 +88,15 @@
 
       when: recovery is not  defined
     
-    - name: Print all information about recover key
-      block:
-        - name: Print all details about recover key
-          ansible.builtin.debug:
-            var: out_recovery.stdout
-
-        - name: Print recovery information about key (mnemonic)
-          ansible.builtin.debug:
-            var: out_recovery.stderr_lines
-
+   
+    - name: Print all details about recover key
+      ansible.builtin.debug:
+        var: out_recovery.stdout
       when: recovery is defined
+
+        
+
+      
           
     
 
