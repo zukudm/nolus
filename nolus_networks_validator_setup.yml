@@ -80,7 +80,7 @@
         
     - name: Print all details about key
       ansible.builtin.debug:
-        var: out.stdout
+        var: out
 
     - name: Print recovery information about key (mnemonic)
       ansible.builtin.debug:
