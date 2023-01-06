@@ -82,7 +82,7 @@
           ansible.builtin.debug:
             var: out.stdout
 
-        - name: Print recovery information about key
+        - name: Print recovery information about key (mnemonic)
           ansible.builtin.debug:
             var: out.stderr_lines
 
