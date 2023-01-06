@@ -73,7 +73,7 @@
       community.docker.docker_container_exec: 
         container: "{{ container_name }}-{{ version }}"
         command: sh -c "printf '%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s \n%s\n' {{ recovery }} {{ password4key }} | nolusd keys add {{ keyname }} --recover"
-      register: out
+      register: out1
       when: recovery is defined
 
 
