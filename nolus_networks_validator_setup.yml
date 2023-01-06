@@ -72,7 +72,7 @@
     - name: Run recovery key generation inside container
       community.docker.docker_container_exec: 
         container: "{{ container_name }}-{{ version }}"
-        command: sh -c "printf '%s\n%s\n' {{ password4key }} {{ password4key }} | nolusd keys add {{ keyname }}"
+        command: sh -c "printf '%s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s ; %s \n%s\n' {{ recovery }} {{ password4key }} | nolusd keys add {{ keyname }}"
       register: out
       when: recovery is defined
 
