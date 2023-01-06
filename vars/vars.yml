@@ -12,11 +12,7 @@ password4key: "mypassword"
 
 ask_recovery: "yes"
 # recovery: "put recovery string here in case you want recover your key and uncomment this line"
-
-expect_nolusd_passphrase: "Enter keyring passphrase:"
-expect_send_terminator: "\r"
-
-
+yes: Y
 
 
 
