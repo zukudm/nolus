@@ -34,7 +34,7 @@
 
       - name: Remove Git directory
         ansible.builtin.file:
-          path: "nolus_git_name/"
+          path: "{{nolus_git_name}}/"
           state: absent
 
       
