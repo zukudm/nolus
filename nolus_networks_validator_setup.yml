@@ -97,7 +97,8 @@
     - name: Upgrade to a Validator
       community.docker.docker_container_exec: 
         container: "{{ container_name }}-{{ version }}"
-        command: sh -c " printf '%s\n%s\n' {{ password4key }} {{ accept }} | nolusd tx staking create-validator --amount 1000000unls --commission-rate '0.1' --commission-max-rate '0.20' --commission-max-change-rate '0.1' --min-self-delegation '1' --pubkey=$(nolusd tendermint show-validator)  --moniker {{moniker_out.stdout}} --chain-id 'nolus-rila' --gas-prices 0.0042unls --from {{keyname}} "
+        # command: sh -c " printf '%s\n%s\n' {{ password4key }} {{ accept }} | nolusd tx staking create-validator --amount 1000000unls --commission-rate '0.1' --commission-max-rate '0.20' --commission-max-change-rate '0.1' --min-self-delegation '1' --pubkey=$(nolusd tendermint show-validator)  --moniker {{moniker_out.stdout}} --chain-id 'nolus-rila' --gas-prices 0.0042unls --from {{keyname}} "
+        command: sh -c " echo $(nolusd tendermint show-validator)  "
       register: out_validator
       
 
