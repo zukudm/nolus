@@ -85,7 +85,7 @@
     - name: Print recovery information about key (mnemonic)
       ansible.builtin.debug:
         var: out.stderr_lines
-      when: recovery is defined
+      # when: recovery is defined
 
 
       
