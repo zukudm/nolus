@@ -95,7 +95,7 @@ nolus_networks_setup.yml - Setup Nolus-netwroks node within your Linux box. Run 
 
 nolus_networks_validator_setup.yml - Run a Validator
 
-nolus_remove.yml  - Remove all nolus-netwroks data, suitable for all cases.
+nolus_remove.yml  - Remove all nolus-networks data, suitable for all cases.
 
 
  
