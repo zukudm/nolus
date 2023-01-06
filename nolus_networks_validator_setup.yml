@@ -76,8 +76,8 @@
       register: out_recovery
       when: recovery is defined
 
-
-    - block:
+    - name: Print all information about new key
+      block:
 
       - name: Print all details about key
         ansible.builtin.debug:
@@ -89,7 +89,8 @@
 
       when: recovery is not  defined
     
-    - block: 
+    - name: Print all information about recover key
+      block:
 
       - name: Print all details about key
         ansible.builtin.debug:
