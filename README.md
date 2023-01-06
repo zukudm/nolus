@@ -1,6 +1,6 @@
 # How to install the Nolus-networks node
 
-This manual describes how to install the Starknet node on your Linux box using a predefined Ansible script
+This manual describes how to install the Nolus-networks node on your Linux box using a predefined Ansible script
 
 # Install Nolus-networks node on Linux
 
@@ -33,7 +33,7 @@ Docker conmpose from [here](https://docker-docs.netlify.app/compose/install/)
 
 ### Install Ansible
 
-Connect to the Linux box, where you are going to run the Starknet node and run commands to install Ansible
+Connect to the Linux box, where you are going to run the node and run commands to install Ansible
 
 In the case of Ubuntu run these commands:
 
@@ -46,7 +46,7 @@ In the case of Ubuntu run these commands:
 
 In case of other distributions of Linux, follow instructions from [here](https://docs.ansible.com/ansible/latest/installation_guide/installation_distros.html)
 
-## Fetch the repository with Ansible files and prepare to run the Starknet node on the Linux box
+## Fetch the repository with Ansible files and prepare to run the node on the Linux box
 
 ```bash
  apt update -y
@@ -55,7 +55,7 @@ In case of other distributions of Linux, follow instructions from [here](https:/
  ansible-galaxy install -r collections/requirements.yml
 ```
 
-## Run Starknet node
+## Run Nolus-networks node
 
 ```bash
 cd ~/nolus-networks
