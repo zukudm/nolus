@@ -76,11 +76,11 @@ Wait for some time and run Validator upgrade.
 After creating a new key, its information will be shown alongside the seed phrase. Make sure to write it down, as it is the only way to restore your keys.
 
 
-# Update
+## Update
 
 Not done yet :(
 
-# Remove
+## Remove
 
 To remove Starnet node from the server just log in and run
 
