@@ -10,7 +10,7 @@ network_name: nolus_net
 keyname: nolus-key
 password4key: "mypassword"
 
-ask_recovery: "yes"
+ask_recovery: "no"
 # recovery: "put recovery string here in case you want recover your key and uncomment this line"
 
 
