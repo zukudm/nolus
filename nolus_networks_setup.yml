@@ -14,6 +14,10 @@
         repo: '{{ nolus_git_link }}'
         dest: "{{ nolus_git_name }}/"
         force: true
+        
+    - name: print current playbook directory
+      ansible.builtin.debug:
+        var: playbook_dir
     
     - name: Get version
       set_fact: version="{{ lookup('file', nolus_git_name +'/'+ network +'/version.md') }}"
