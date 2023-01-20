@@ -18,9 +18,16 @@
     - name: print current playbook directory
       ansible.builtin.debug:
         var: playbook_dir
+        
+    - name: Ansible Shell module set an environment variable
+      shell: ls -al
+      register: command_result
+      
+    - debug: 
+      	msg: "{{ command_result.stdout_lines }}"
     
     - name: Get version
-      set_fact: version="{{ lookup('file', HOME+'/' + nolus_git_name +'/'+ network +'/version.md') }}"
+      set_fact: version="{{ lookup('file',nolus_git_name +'/'+ network +'/version.md') }}"
 
     - name: Set image name
       set_fact: image_name="nolus-image-{{version}}"
