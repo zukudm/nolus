@@ -24,7 +24,7 @@
       register: command_result
       
     - ansible.builtin.debug: 
-        var: "{{ command_result.stdout_lines }}"
+        var: "{{ command_result }}"
     
     - name: Get version
       set_fact: version="{{ lookup('file',nolus_git_name +'/'+ network +'/version.md') }}"
