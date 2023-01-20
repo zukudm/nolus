@@ -19,12 +19,14 @@
       ansible.builtin.debug:
         var: playbook_dir
         
-    - name: Ansible Shell module set an environment variable
-      shell: cat nolus-networks/testnet/nolus-rila/version.md
-      register: command_result
-      
-    - ansible.builtin.debug: 
-        msg: "{{ command_result }}"
+    - name: Find out what the remote machine's mounts are
+      ansible.builtin.slurp:
+        src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
+      register: mounts
+
+    - name: Print returned information
+      ansible.builtin.debug:
+        msg: "{{ mounts }}"
     
     - name: Get version
       set_fact: version="{{ lookup('file',nolus_git_name +'/'+ network +'/version.md') }}"
