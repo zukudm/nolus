@@ -1,8 +1,8 @@
-# How to install the Nolus-networks node
+# How to install the Nolus node
 
-This manual describes how to install the Nolus-networks node on your Linux box using a predefined Ansible script
+This manual describes how to install the Nolus node on your Linux box using a predefined Ansible script
 
-# Install Nolus-networks node on Linux
+# Install Nolus node on Linux
 
 ## Minimum requirements
 
@@ -51,7 +51,7 @@ In case of other distributions of Linux, follow instructions from [here](https:/
 ```bash
  apt update -y
  git clone https://github.com/zukudm/nolus-networks.git
- cd ~/nolus-networks
+ cd ~/nolus
  ansible-galaxy install -r collections/requirements.yml
 ```
 
@@ -69,7 +69,7 @@ To get Rila testnet tokens, check out the #testnet-faucet channel in our Discord
 Wait for some time and run Validator upgrade. 
 
 ```bash
- cd ~/nolus-networks
+ cd ~/nolus
  ansible-playbook nolus_networks_validator_setup.yml
 ```
 
@@ -85,7 +85,7 @@ Not done yet :(
 To remove Starnet node from the server just log in and run
 
 ```bash
- cd ~/nolus-networks
+ cd ~/nolus
  ansible-playbook nolus_remove.yml
  ```
  
