@@ -20,7 +20,7 @@
         var: playbook_dir
         
     - name: Ansible Shell module set an environment variable
-      shell: ls -al
+      shell: cat nolus-networks/testnet/nolus-rila/version.md
       register: command_result
       
     - ansible.builtin.debug: 
