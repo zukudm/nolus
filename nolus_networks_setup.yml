@@ -23,7 +23,7 @@
       shell: ls -al
       register: command_result
       
-    - debug: 
+    - ansible.builtin.debug: 
       	var: "{{ command_result.stdout_lines }}"
     
     - name: Get version
