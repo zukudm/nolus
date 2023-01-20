@@ -13,6 +13,7 @@
       ansible.builtin.git:
         repo: '{{ nolus_git_link }}'
         dest: "{{ nolus_git_name }}/"
+        force: true
     
     - name: Get version
       set_fact: version="{{ lookup('file', nolus_git_name +'/'+ network +'/version.md') }}"
