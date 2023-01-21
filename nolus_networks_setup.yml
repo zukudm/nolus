@@ -31,8 +31,8 @@
     - name: Set image name
       set_fact: image_name="nolus-image-{{version}}"
       
-     - ansible.builtin.debug:
-         var: image_name
+    - ansible.builtin.debug:
+        var: image_name
 
     - name: Build image and with build args
       community.docker.docker_image:
