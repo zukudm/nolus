@@ -15,7 +15,7 @@ About 100 GB Disk free space
 It is necessary to do it only once. If you did it before, skip the docker and Ansible installation
 
 
-### Install docker stuff to prepare environment
+### Install docker stuff to prepare the environment
 
 Install from [here](https://github.com/zukudm/tools)
 
@@ -55,14 +55,22 @@ In case of other distributions of Linux, follow instructions from [here](https:/
  ansible-galaxy install -r collections/requirements.yml
 ```
 
-## Run Nolus-networks node
+## Run Nolus node
 
 ```bash
-cd ~/nolus-networks
+cd ~/nolus
 ansible-playbook nolus_networks_setup.yml
 ```
+## Run Nolus new keys generation or recovery (default is new key generation)
 
-After starting the nolusd daemon, the chain will begin to sync to the network. The time to sync to the network will vary depending on your setup and the current size of the blockchain, but it could take a very long time
+```bash
+cd ~/nolus
+ansible-playbook nolus_add-restore_keys.yml
+```
+
+## Upgrade to Validator
+
+After starting the nolusd daemon, the chain will begin to sync to the network. The time to sync to the network will vary depending on your setup and the current size of the blockchain, but it could take a time
 
 To get Rila testnet tokens, check out the #testnet-faucet channel in our Discord server!
 
@@ -70,7 +78,7 @@ Wait for some time and run Validator upgrade.
 
 ```bash
  cd ~/nolus
- ansible-playbook nolus_networks_validator_setup.yml
+ ansible-playbook nolus_upgrade_to_validator.yml
 ```
 
 After creating a new key, its information will be shown alongside the seed phrase. Make sure to write it down, as it is the only way to restore your keys.
@@ -91,9 +99,11 @@ To remove Starnet node from the server just log in and run
  
  # List of Ansible playbooks:
 
-nolus_networks_setup.yml - Setup Nolus-netwroks node within your Linux box. Run it from root user. 
+nolus_networks_setup.yml - Setup Nolus node within your Linux box. Run it from the root user. 
 
-nolus_networks_validator_setup.yml - Run a Validator
+nolus_add_restore_keys.yml - Run a new keys generation (or recovery)
+
+nolus_upgrade_to_validator.yml - Nolus Upgrade to Validator 
 
 nolus_remove.yml  - Remove all nolus-networks data, suitable for all cases.
 
