@@ -17,12 +17,14 @@
   
   tasks:
  
+    - name: Get file content version.md content
+      ansible.builtin.slurp:
+        src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
+      register: version_output
+
     - name: Get version
-      set_fact: version="{{ lookup('file', nolus_git_name +'/'+ network +'/version.md') }}"
-
-    - name: Set image name
-      set_fact: image_name="nolus-image-{{version}}"
-
+      set_fact: version="{{ version_output['content']| b64decode }}"
+      
     - name: Set recovery mnemonic
       set_fact: recovery="{{ recovery_mnemonic.user_input }}"
       when: recovery_mnemonic.user_input is defined
