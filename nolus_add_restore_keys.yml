@@ -96,16 +96,16 @@
         var: out_recovery.stdout
       when: recovery is defined
 
-    - name: Upgrade to a Validator
-      community.docker.docker_container_exec: 
-        container: "{{ container_name }}-{{ version }}"
-        command: sh -c ' printf "%s\n" {{ password4key }} | nolusd tx staking create-validator --amount 1000000unls --commission-rate "0.1" --commission-max-rate "0.20" --commission-max-change-rate "0.1" --min-self-delegation "1" --pubkey=$(nolusd tendermint show-validator)  --moniker {{moniker_out.stdout}} --chain-id "nolus-rila" --gas-prices 0.0042unls --from {{keyname}} --yes'
-      register: out_validator
+    # - name: Upgrade to a Validator
+    #   community.docker.docker_container_exec: 
+    #     container: "{{ container_name }}-{{ version }}"
+    #     command: sh -c ' printf "%s\n" {{ password4key }} | nolusd tx staking create-validator --amount 1000000unls --commission-rate "0.1" --commission-max-rate "0.20" --commission-max-change-rate "0.1" --min-self-delegation "1" --pubkey=$(nolusd tendermint show-validator)  --moniker {{moniker_out.stdout}} --chain-id "nolus-rila" --gas-prices 0.0042unls --from {{keyname}} --yes'
+    #   register: out_validator
       
 
-    - name: Print all details about recover key
-      ansible.builtin.debug:
-        var: out_validator
+    # - name: Print all details about recover key
+    #   ansible.builtin.debug:
+    #     var: out_validator
 
         
 
