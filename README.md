@@ -68,11 +68,14 @@ cd ~/nolus
 ansible-playbook nolus_add-restore_keys.yml
 ```
 
+After creating a new key, its information will be shown alongside the seed phrase. Make sure to write it down, as it is the only way to restore your keys.
+
+
 ## Upgrade to Validator
 
 After starting the nolusd daemon, the chain will begin to sync to the network. The time to sync to the network will vary depending on your setup and the current size of the blockchain, but it could take a time
 
-To get Rila testnet tokens, check out the #testnet-faucet channel in our Discord server!
+To get Rila testnet tokens, check out the #testnet-faucet channel in Discord server!
 
 Wait for some time and run Validator upgrade. 
 
@@ -80,8 +83,6 @@ Wait for some time and run Validator upgrade.
  cd ~/nolus
  ansible-playbook nolus_upgrade_to_validator.yml
 ```
-
-After creating a new key, its information will be shown alongside the seed phrase. Make sure to write it down, as it is the only way to restore your keys.
 
 
 ## Update
