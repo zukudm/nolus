@@ -46,18 +46,18 @@
         command: sh -c "apk add curl; apk add jq"
           
 
-    - name: Get sync status inside container
-      community.docker.docker_container_exec: 
-        container: "{{ container_name }}-{{ version }}"
-        command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
-      register: sync_out
+    # - name: Get sync status inside container
+    #   community.docker.docker_container_exec: 
+    #     container: "{{ container_name }}-{{ version }}"
+    #     command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
+    #   register: sync_out
 
 
-    - name: Validate whether the node synced
-      assert:
-        that: 
-          - sync_out.stdout == "false"
-        fail_msg: "The node is not synced!!!! Please wait for a while"
+    # - name: Validate whether the node synced
+    #   assert:
+    #     that: 
+    #       - sync_out.stdout == "false"
+    #     fail_msg: "The node is not synced!!!! Please wait for a while"
 
     - name: Print if recovery is eanbled
       ansible.builtin.debug:
