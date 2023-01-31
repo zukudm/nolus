@@ -9,18 +9,18 @@
 
   tasks:
   
-    - name: Get file content version.md content
-      ansible.builtin.slurp:
-        src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
-      register: version_output
+    # - name: Get file content version.md content
+    #   ansible.builtin.slurp:
+    #     src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
+    #   register: version_output
 
-    - name: Get version
-      set_fact: version="{{ version_output['content']| b64decode }}"
+    # - name: Get version
+    #   set_fact: version="{{ version_output['content']| b64decode }}"
       
 
     - name: Get sync status inside container
       community.docker.docker_container_exec: 
-        container: "{{ container_name }}-{{ version }}"
+        container: "{{ container_name }}"
         command: sh -c "curl http://localhost:26657/status | jq .result.sync_info.catching_up"
       register: sync_out
 
@@ -33,7 +33,7 @@
 
     - name: Upgrade to a Validator
       community.docker.docker_container_exec: 
-        container: "{{ container_name }}-{{ version }}"
+        container: "{{ container_name }}"
         command: sh -c ' printf "%s\n" {{ password4key }} | nolusd tx staking create-validator --amount 1000000unls --commission-rate "0.1" --commission-max-rate "0.20" --commission-max-change-rate "0.1" --min-self-delegation "1" --pubkey=$(nolusd tendermint show-validator)  --moniker {{moniker_out.stdout}} --chain-id "nolus-rila" --gas-prices 0.0042unls --from {{keyname}} --yes'
       register: out_validator
       
