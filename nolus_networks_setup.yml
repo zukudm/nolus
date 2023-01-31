@@ -56,7 +56,7 @@
         name: "{{ container_name }}"
         image: "{{ image_name }}:{{ version }}"
         labels: 
-          - "version={{version}}"
+          - version: "{{version}}"
         pull: false
         detach: yes
         restart_policy: unless-stopped
