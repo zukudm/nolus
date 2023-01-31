@@ -6,7 +6,7 @@ volume_name: nolus_volume
 container_name: nolus-node
 
 network_name: nolus_net
-image_name: testnet-nolus-rile
+image_name: testnet-nolus-rila
 
 keyname: nolus-key
 password4key: "mypassword"
@@ -18,7 +18,7 @@ ask_recovery: "no"
 
 
 dockerfile: nolus_node.Dockerfile
-dockertag: testnet-nolus-rila
+#dockertag: testnet-nolus-rila
 working_user: ansible
 
 
