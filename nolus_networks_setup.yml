@@ -55,8 +55,7 @@
       community.docker.docker_container:
         name: "{{ container_name }}"
         image: "{{ image_name }}:{{ version }}"
-        labels: 
-          - version: "{{version}}"
+        labels: "version:{{version}}"
         pull: false
         detach: yes
         restart_policy: unless-stopped
