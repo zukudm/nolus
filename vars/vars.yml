@@ -6,6 +6,7 @@ volume_name: nolus_volume
 container_name: nolus-node
 
 network_name: nolus_net
+image_name: testnet-nolus-rile
 
 keyname: nolus-key
 password4key: "mypassword"
