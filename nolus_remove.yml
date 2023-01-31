@@ -19,7 +19,7 @@
 
       - name: Remove old container if exists
         community.docker.docker_container:
-          name: "{{ container_name }}-{{ version }}"
+          name: "{{ container_name }}"
           state: absent
       
 
