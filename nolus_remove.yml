@@ -8,14 +8,14 @@
   tasks:
  
 
-      - name: Get file content version.md content
-        ansible.builtin.slurp:
-          src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
-        register: version_output
+      # - name: Get file content version.md content
+      #   ansible.builtin.slurp:
+      #     src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
+      #   register: version_output
 
 
-      - name: Get version
-        set_fact: version="{{ version_output['content']| b64decode }}"
+      # - name: Get version
+      #   set_fact: version="{{ version_output['content']| b64decode }}"
 
       - name: Remove old container if exists
         community.docker.docker_container:
