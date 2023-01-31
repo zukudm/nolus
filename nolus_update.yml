@@ -1,0 +1,25 @@
+- name: Update Nolus 
+  vars_files: 
+    - vars/vars.yml
+  hosts: "{{ host }}"
+  gather_facts: no
+  become: yes    
+  
+  tasks:
+    
+      
+      - name: Get infos on container
+        docker_container_info:
+          name: "{{ container_name }}"
+        register: result
+
+      - name: Validate if container exist``
+        assert:
+          that: 
+            - result.exists
+          fail_msg: "Container is not exist!!!"
+
+      - name: Print all details about recover key
+        ansible.builtin.debug:
+          var: result
+
