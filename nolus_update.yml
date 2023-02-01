@@ -44,7 +44,8 @@
           - name: Build the new image and with build args
             community.docker.docker_image:
               name: "{{ image_name }}"
-              tag: "{{ version }}"
+              #tag: "{{ version }}"
+              tag: "latest"
               state: present
               force_absent: true
               build:
