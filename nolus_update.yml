@@ -36,7 +36,7 @@
 
       - name: Print all details about recover key
         ansible.builtin.debug:
-          var: version_output
+          var: version_output['content']| b64decode
 
 
       - block: 
