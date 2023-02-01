@@ -28,9 +28,7 @@
     - name: Get version
       set_fact: version="{{ version_output['content']| b64decode }}"
 
-    # - name: Set image name
-    #   set_fact: image_name="nolus-image-{{version}}"
-      
+    
     
     - name: Build image and with build args
       community.docker.docker_image:

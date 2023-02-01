@@ -40,8 +40,23 @@
           - name: Do domething for Update
             ansible.builtin.debug:
               msg: "Doing something for update"
+          
+          - name: Build the new image and with build args
+            community.docker.docker_image:
+              name: "{{ image_name }}"
+              tag: "{{ version }}"
+              state: present
+              force_absent: true
+              build:
+                path: "{{ nolus_git_name }}/"
+                dockerfile: "{{ dockerfile }}"
+                args:
+                  NETWORK: "{{ network }}"
+                  VERSION: "{{ version }}"
+              source: build
 
-        when: version != result.container['Config']['Labels']['version']
+
+        when: version == result.container['Config']['Labels']['version']
 
       - name: Print information about container
         debug:
