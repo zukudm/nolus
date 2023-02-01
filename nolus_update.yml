@@ -40,12 +40,22 @@
           - name: Do domething for Update
             ansible.builtin.debug:
               msg: "Doing something for update"
-          
+
+          - name: Remove old container if exists
+            community.docker.docker_container:
+              name: "{{ container_name }}"
+              state: absent
+
+          - name: Remove image
+            community.docker.docker_image:
+              state: absent
+              name: "{{ image_name }}"
+              tag: "{{ version }}"
+                    
           - name: Build the new image and with build args
             community.docker.docker_image:
               name: "{{ image_name }}"
-              #tag: "{{ version }}"
-              tag: "latest"
+              tag: "{{ version }}"
               state: present
               force_absent: true
               build:
@@ -55,6 +65,27 @@
                   NETWORK: "{{ network }}"
                   VERSION: "{{ version }}"
               source: build
+
+          - name: Start the container 
+            community.docker.docker_container:
+              name: "{{ container_name }}"
+              image: "{{ image_name }}:{{ version }}"
+              labels: 
+                version: "{{version}}"
+              pull: false
+              detach: yes
+              restart_policy: unless-stopped
+              networks: 
+                - name: "{{ network_name }}"
+              volumes: 
+                - "{{ volume_name }}:{{ container_mount_point }}"
+              cpus: "{{ cpus }}"
+              cpu_shares: "{{ cpu_shares }}"
+              memory: "{{ memory }}"
+              memory_reservation: "{{ memory_reservation }}"
+
+
+
 
 
         when: version == result.container['Config']['Labels']['version']
