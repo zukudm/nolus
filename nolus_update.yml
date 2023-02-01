@@ -45,9 +45,9 @@
             ansible.builtin.debug:
               msg: "Doing something for update"
 
-        when: version_output != result.container['Config']['Labels']['version']
+        when: (version_output['content']| b64decode) != result.container['Config']['Labels']['version']
 
       - name: Print information about container
         debug:
           msg: "No new version for container"  
-        when: version_output == result.container['Config']['Labels']['version']  
+        when: (version_output['content']| b64decode) == result.container['Config']['Labels']['version']  
