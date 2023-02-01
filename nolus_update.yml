@@ -13,7 +13,7 @@
           name: "{{ container_name }}"
         register: result
 
-      - name: Validate if container exist``
+      - name: Validate if container exist
         assert:
           that: 
             - result.exists
@@ -30,6 +30,10 @@
           src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
         register: version_output
 
+      - name: Get version
+        set_fact: version="{{ version_output['content']| b64decode }}"
+
+
 
       - block: 
 
@@ -37,9 +41,9 @@
             ansible.builtin.debug:
               msg: "Doing something for update"
 
-        when: (version_output['content']| b64decode) != result.container['Config']['Labels']['version']
+        when: version != result.container['Config']['Labels']['version']
 
       - name: Print information about container
         debug:
           msg: "No new version for container"  
-        when: (version_output['content']| b64decode) == result.container['Config']['Labels']['version']  
+        when: version == result.container['Config']['Labels']['version']  
