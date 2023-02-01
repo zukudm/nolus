@@ -23,3 +23,27 @@
         ansible.builtin.debug:
           var: result.container['Config']['Labels']['version']
 
+      - name: Git checkout
+        ansible.builtin.git:
+          repo: '{{ nolus_git_link }}'
+          dest: "{{ nolus_git_name }}/"
+          force: true
+
+      - name: Get file content version.md content
+        ansible.builtin.slurp:
+          src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
+        register: version_output
+
+
+      - block: 
+
+          - name: Do domething for Update
+            ansible.builtin.debug:
+              msg: "Doing something for update"
+
+        when: version_output != result.container['Config']['Labels']['version']
+
+      - name: Print information about container
+        debug:
+          msg: "No new version for container"  
+        when: version_output == result.container['Config']['Labels']['version']  
