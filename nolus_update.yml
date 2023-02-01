@@ -34,6 +34,10 @@
           src: "{{ nolus_git_name +'/'+ network +'/version.md' }}"
         register: version_output
 
+      - name: Print all details about recover key
+        ansible.builtin.debug:
+          var: version_output
+
 
       - block: 
 
