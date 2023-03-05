@@ -87,7 +87,12 @@ Wait for some time and run Validator upgrade.
 
 ## Update
 
-Not done yet :(
+Run playbook nolus_update.yml
+
+```bash
+ cd ~/nolus
+ ansible-playbook nolus_update.yml
+```
 
 ## Remove
 
