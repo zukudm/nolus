@@ -33,7 +33,6 @@ Docker compose from [here](https://docker-docs.netlify.app/compose/install/)
 
 ### Install Ansible
 
-It is necessary to do it only once on the server.
 <details>
 
 Connect to the Linux box, where you are going to run the node and run commands to install Ansible
@@ -55,7 +54,7 @@ In case of other distributions of Linux, follow instructions from [here](https:/
 
 ```bash
  apt update -y
- git clone https://github.com/zukudm/nolus-networks.git
+ git clone https://github.com/zukudm/nolus.git
  cd ~/nolus
  ansible-galaxy install -r collections/requirements.yml
 ```
