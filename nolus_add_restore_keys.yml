@@ -40,10 +40,10 @@
       ansible.builtin.debug:
         var: moniker_out.stdout 
 
-    - name: Add curl and jq pkg into the container
-      community.docker.docker_container_exec: 
-        container: "{{ container_name }}"
-        command: sh -c "apk add curl; apk add jq"
+    # - name: Add curl and jq pkg into the container
+    #   community.docker.docker_container_exec: 
+    #     container: "{{ container_name }}"
+    #     command: sh -c "apk add curl; apk add jq"
           
 
     # - name: Get sync status inside container

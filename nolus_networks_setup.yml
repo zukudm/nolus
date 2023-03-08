@@ -67,6 +67,11 @@
         memory: "{{ memory }}"
         memory_reservation: "{{ memory_reservation }}"
 
+    - name: Add curl and jq pkg into the container
+      community.docker.docker_container_exec: 
+        container: "{{ container_name }}"
+        command: sh -c "apk add curl; apk add jq"
+
 
 
 
