@@ -59,7 +59,7 @@
     #       - sync_out.stdout == "false"
     #     fail_msg: "The node is not synced!!!! Please wait for a while"
 
-    - name: Print if recovery is enabled
+    - name: Print if recovery is defined
       ansible.builtin.debug:
         msg: " printf '%s\n%s\n' {{ recovery }} {{ password4key  }} | nolusd keys add {{ keyname }} --recover"
       when: recovery is defined
